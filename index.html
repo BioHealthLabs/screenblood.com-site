@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ScreenBlood.com – At-Home Blood Tests & Screening Panels (Everlywell, 2025)</title>
+  <meta name="description" content="Understand at-home blood testing in plain language. Compare common screening panels, biomarkers, and when to test. Includes a clear path to Everlywell for at-home lab-style testing." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.screenblood.com/" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ===== Soft consent banner (GA loads only after accept) ===== */
+    .consent-banner {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 99999;
+      display: none; /* shown via JS */
+      background: rgba(2, 6, 23, 0.92);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      padding: 14px 14px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .consent-banner[aria-hidden="false"] { display: block; }
+
+    .consent-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .consent-copy {
+      min-width: 240px;
+      flex: 1 1 520px;
+      line-height: 1.45;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+    .consent-copy strong { color: #e5e7eb; }
+
+    .consent-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .consent-btn {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 0.92rem;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .consent-accept { background: #ec4899; color: #0b1220; }
+    .consent-reject {
+      background: transparent;
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+    .consent-links {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      flex-wrap: wrap;
+    }
+    .consent-links a { color: #93c5fd; text-decoration: none; }
+    .consent-links a:hover { text-decoration: underline; }
+
+    /* Small helper */
+    .mini-note { font-size: 0.92rem; color: #94a3b8; }
+  </style>
+
+  <!-- Consent + GA loader (GA4 loads only AFTER accept) -->
+  <script>
+    (function () {
+      const CONSENT_KEY = "ronarn_consent_analytics_v1";
+      const GA_ID = "G-3GVJ73QQ5J";
+
+      function showBanner() {
+        const el = document.getElementById("consent-banner");
+        if (el) el.setAttribute("aria-hidden", "false");
+      }
+      function hideBanner() {
+        const el = document.getElementById("consent-banner");
+        if (el) el.setAttribute("aria-hidden", "true");
+      }
+
+      function loadGA4() {
+        if (window.__gaLoaded) return;
+        window.__gaLoaded = true;
+
+        const s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID);
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+
+        gtag("js", new Date());
+        gtag("config", GA_ID, { anonymize_ip: true });
+      }
+
+      function setConsent(value) { localStorage.setItem(CONSENT_KEY, value); }
+      function getConsent() { return localStorage.getItem(CONSENT_KEY); }
+      function clearConsent() { localStorage.removeItem(CONSENT_KEY); }
+
+      window.__openPrivacySettings = function () {
+        clearConsent();
+        showBanner();
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const saved = getConsent();
+
+        if (saved === "accepted") { loadGA4(); hideBanner(); return; }
+        if (saved === "rejected") { hideBanner(); return; }
+
+        showBanner();
+
+        const btnAccept = document.getElementById("consent-accept");
+        const btnReject = document.getElementById("consent-reject");
+
+        if (btnAccept) {
+          btnAccept.addEventListener("click", function () {
+            setConsent("accepted");
+            loadGA4();
+            hideBanner();
+          });
+        }
+
+        if (btnReject) {
+          btnReject.addEventListener("click", function () {
+            setConsent("rejected");
+            hideBanner();
+          });
+        }
+      });
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- SOFT Consent Banner -->
+  <div id="consent-banner" class="consent-banner" role="dialog" aria-modal="false" aria-hidden="true" aria-label="Privacy choices">
+    <div class="consent-row">
+      <div class="consent-copy">
+        <strong>Privacy choices:</strong> ScreenBlood.com uses analytics (GA4) to understand which pages help visitors.
+        If you accept, we load analytics. If you reject, the site works normally without analytics.
+        <span class="mini-note">Acceptance is only about analytics, not about affiliate links.</span>
+      </div>
+
+      <div class="consent-actions">
+        <button id="consent-accept" class="consent-btn consent-accept" type="button">Accept analytics</button>
+        <button id="consent-reject" class="consent-btn consent-reject" type="button">Reject</button>
+
+        <span class="consent-links">
+          <a href="/privacy.html">Privacy</a>
+          <span>·</span>
+          <a href="/disclosure.html">Disclosure</a>
+          <span>·</span>
+          <a href="#" onclick="window.__openPrivacySettings(); return false;">Privacy settings</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="brand-name">ScreenBlood.com</div>
+        <div class="brand-tagline">
+          At-home blood testing explained — clear panels, biomarkers, and practical next steps.
+        </div>
+      </div>
+
+      <div class="trust-tags">
+        <span class="trust-tag">Educational only</span>
+        <span class="trust-tag">No medical advice</span>
+        <span class="trust-tag">Independent guidance</span>
+      </div>
+
+      <!-- FULL HEADER / TABS -->
+      <nav class="tabs" aria-label="Primary">
+        <a class="tab is-active" href="/" aria-current="page">Screening</a>
+        <a class="tab" href="/blood-testing-explained.html">Blood Testing Explained</a>
+        <a class="tab" href="/biomarkers.html">Biomarkers</a>
+        <a class="tab" href="/panels.html">Panels</a>
+        <a class="tab" href="/about.html">About</a>
+        <a class="tab" href="/privacy.html">Privacy</a>
+        <a class="tab" href="/disclosure.html">Disclosure</a>
+        <a class="tab" href="/contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div>
+          <h1 id="hero-heading" class="hero-title">
+            Simple, practical blood screening — without hype.
+          </h1>
+
+          <p class="hero-subtitle">
+            People usually search “what blood test should I take?”, get buried in biomarker lists,
+            then either do nothing or buy a random panel. ScreenBlood.com exists to make screening decisions
+            more structured and less confusing.
+          </p>
+
+          <ul class="hero-list">
+            <li>Understand common screening panels and what they typically measure.</li>
+            <li>Learn what biomarkers can (and can’t) tell you outside a clinical context.</li>
+            <li>Use at-home testing as a starting point — then confirm with a clinician when needed.</li>
+          </ul>
+
+          <div class="hero-highlight">
+            The goal is clarity: pick a panel that matches your purpose, avoid over-testing, and interpret results responsibly.
+          </div>
+
+          <div class="hero-actions">
+            <a href="/blood-testing-explained.html" class="btn-secondary">
+              Start here: blood testing explained
+            </a>
+
+            <a href="#cta" class="btn-primary">
+              View at-home screening option
+              <span class="chevron">›</span>
+            </a>
+
+            <a href="/panels.html" class="btn-secondary">
+              Browse common panels
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-aside">
+          <p class="hero-note">
+            Important: At-home tests are not a diagnosis. If you have symptoms or a specific concern,
+            your best next step is usually a clinician and a properly ordered lab test.
+          </p>
+        </aside>
+      </section>
+
+      <!-- SECTION: WHAT “SCREENING” MEANS -->
+      <section class="card" aria-labelledby="screening-meaning">
+        <h2 id="screening-meaning" class="section-title">What “blood screening” usually means</h2>
+        <p class="section-subtitle">
+          Screening is a broad check-in: a set of biomarkers that can help you spot patterns (for example,
+          inflammation signals, lipid risk markers, or nutrient status). It is most useful when you:
+        </p>
+
+        <ul class="hero-list">
+          <li>want a baseline before lifestyle changes, training blocks, or supplementation</li>
+          <li>track known markers over time (e.g., lipids) and want consistency</li>
+          <li>have a general “something feels off” concern and want a structured starting point</li>
+        </ul>
+
+        <p class="section-subtitle">
+          Screening is less useful when you need a medical decision today, have acute symptoms,
+          or need diagnostic-grade interpretation.
+        </p>
+      </section>
+
+      <!-- SECTION: POPULAR PANELS -->
+      <section class="card" aria-labelledby="panels-heading">
+        <h2 id="panels-heading" class="section-title">Common screening panels (overview)</h2>
+        <p class="section-subtitle">
+          These are typical categories people look for. Names and exact markers differ by provider and country.
+          Use this as a map, not as medical instruction.
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Panel type</th>
+                <th scope="col">Typical purpose</th>
+                <th scope="col">What to watch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>General wellness</strong></td>
+                <td>Baseline health patterns (broad overview).</td>
+                <td>Over-interpretation risk: results need context and follow-up.</td>
+              </tr>
+              <tr>
+                <td><strong>Lipids / heart risk markers</strong></td>
+                <td>Cholesterol patterns, cardiovascular risk conversation starter.</td>
+                <td>Trends matter more than one-off results.</td>
+              </tr>
+              <tr>
+                <td><strong>Vitamins &amp; nutrients</strong></td>
+                <td>Identify possible deficiencies to discuss with a clinician.</td>
+                <td>Supplements can change markers quickly; avoid guesswork dosing.</td>
+              </tr>
+              <tr>
+                <td><strong>Hormones</strong></td>
+                <td>Investigate fatigue, mood, performance, cycle-related questions.</td>
+                <td>Timing matters; interpretation is complex.</td>
+              </tr>
+              <tr>
+                <td><strong>Inflammation markers</strong></td>
+                <td>High-level signals that can guide next steps.</td>
+                <td>Many causes; not a diagnosis.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="section-subtitle">
+          Next: see the deeper guide on <a href="/panels.html">how panels are typically structured</a> and what to do with results.
+        </p>
+      </section>
+
+      <!-- CTA SECTION -->
+      <section id="cta" class="card" aria-labelledby="cta-heading">
+        <h2 id="cta-heading" class="section-title">At-home testing option: Everlywell</h2>
+
+        <p class="section-subtitle">
+          If you want a structured at-home option, Everlywell is a well-known provider for consumer-style testing.
+          Always confirm the exact availability, test scope, and terms on the provider site.
+        </p>
+
+        <div class="hero-highlight" style="margin-top: 10px;">
+          This link may be a commercial (affiliate) link. It does not change how we describe panels or biomarkers.
+        </div>
+
+        <div class="hero-actions" style="margin-top: 14px;">
+          <a href="https://everlywell.pxf.io/c/6693012/1588702/18412"
+             class="btn-primary" target="_blank" rel="nofollow sponsored noopener">
+            View Everlywell tests
+            <span class="chevron">›</span>
+          </a>
+
+          <a href="/disclosure.html" class="btn-secondary">Disclosure</a>
+          <a href="/blood-testing-explained.html" class="btn-secondary">How to interpret results</a>
+        </div>
+
+        <p class="section-subtitle" style="margin-top: 12px;">
+          Rule of thumb: Use at-home screening for direction and trend tracking — use clinicians for diagnosis and treatment decisions.
+        </p>
+      </section>
+
+      <!-- GRID: GUIDES -->
+      <section class="grid" aria-label="Guides to blood testing">
+        <article class="card">
+          <h2>Blood testing explained</h2>
+          <p>
+            What biomarkers can tell you, what they cannot, and how to avoid false certainty from one-off results.
+          </p>
+          <a href="/blood-testing-explained.html" class="btn-primary">Read the guide ›</a>
+        </article>
+
+        <article class="card">
+          <h2>Biomarkers (plain language)</h2>
+          <p>
+            A practical glossary: what common markers are broadly used for and what context you need.
+          </p>
+          <a href="/biomarkers.html" class="btn-primary">Browse biomarkers ›</a>
+        </article>
+
+        <article class="card">
+          <h2>Panels: choosing a scope</h2>
+          <p>
+            Avoid “everything tests.” Pick a panel size that matches your goal and budget, then iterate.
+          </p>
+          <a href="/panels.html" class="btn-primary">Explore panels ›</a>
+        </article>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <section class="disclaimer">
+        <p>
+          ScreenBlood.com does not provide medical advice. Content is educational and informational only and may differ by country.
+        </p>
+        <p>
+          If you have symptoms, urgent concerns, or abnormal results, consult a qualified healthcare professional.
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2025 ScreenBlood.com – Educational blood testing guidance.</span>
+      <span>Operated by ronarn AS, Norway. Independent information site.</span>
+      <span>Contact: <a href="mailto:info@screenblood.com">info@screenblood.com</a></span>
+      <span>Business address: Pb. 1010 Lillestrøm Syd, 2012 Lillestrøm, Norway</span>
+
+      <span class="footer-links">
+        <a href="/about.html">About</a> ·
+        <a href="/privacy.html">Privacy</a> ·
+        <a href="/disclosure.html">Disclosure</a> ·
+        <a href="/contact.html">Contact</a>
+        <span> · </span>
+        <a href="#" onclick="window.__openPrivacySettings(); return false;">Privacy settings</a>
+      </span>
+    </footer>
+
+  </div>
+</body>
+</html>
+```0
